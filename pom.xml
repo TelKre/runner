@@ -32,5 +32,7 @@
     <module>runner-web</module>
         <module>runner-core</module>
         <module>runner-api</module>
+        <module>Runner-web</module>
+        <module>runnera-dmin</module>
     </modules>
 </project>

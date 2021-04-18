@@ -8,12 +8,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="runner-api" />
         <module name="runner-core" />
+        <module name="Runner-web" />
+        <module name="runnera-dmin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="runner" target="1.8" />
       <module name="runner-api" target="1.8" />
       <module name="runner-core" target="1.8" />
+      <module name="Runner-web" target="1.8" />
+      <module name="runnera-dmin" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
