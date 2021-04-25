@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Runner-web/Runner-web.iml" filepath="$PROJECT_DIR$/Runner-web/Runner-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/runner.iml" filepath="$PROJECT_DIR$/.idea/runner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/runner-admin/runner-admin.iml" filepath="$PROJECT_DIR$/runner-admin/runner-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/runner-api/runner-api.iml" filepath="$PROJECT_DIR$/runner-api/runner-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/runner-core/runner-core.iml" filepath="$PROJECT_DIR$/runner-core/runner-core.iml" />
+    </modules>
+  </component>
+</project>

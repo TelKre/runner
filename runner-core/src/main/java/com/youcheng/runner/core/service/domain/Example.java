@@ -1,11 +1,9 @@
 package com.youcheng.runner.core.service.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "at_example")
 public class Example {
     @Id
     @GeneratedValue
@@ -38,5 +36,14 @@ public class Example {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    @Override
+    public String toString() {
+        return "Example{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }

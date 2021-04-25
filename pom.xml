@@ -33,6 +33,7 @@
         <module>runner-core</module>
         <module>runner-api</module>
         <module>Runner-web</module>
-        <module>runnera-dmin</module>
+        <module>runner-admin</module>
+        <module>runner-admin</module>
     </modules>
 </project>
