@@ -9,5 +9,10 @@ public class HelloServiceImpl implements HelloService{
     public String say(String name) {
         return "Hello, " + name;
     }
+
+    @Override
+    public String say2(){
+        return null;
+    }
 }
 

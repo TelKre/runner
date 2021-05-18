@@ -49,4 +49,3 @@ public class ResultGenerator {
         return new Result<String>().setStatus(Result.RESULT_CODE_UNAUTHORIZED).setMessage("认证失败").setData("错误信息：" + exceptionMsg);
     }
 }
-

@@ -30,7 +30,7 @@ public class HttpAspect {
 //    参数匹配（(param-pattern)）可以指定具体的参数类型，多个参数间用“,”隔开，各个参数也可以用“*”来表示匹配任意类型的参数，如(String)表示匹配一个String参数的方法；(*,String) 表示匹配有两个参数的方法，第一个参数可以是任意类型，而第二个参数是String类型；可以用(..)表示零个或多个任意参数
 //    异常类型匹配（throws-pattern?）
 //    其中后面跟着“?”的是可选项
-    @Pointcut("execution(public * com.azthink.runner.api.controller.*.*(..))")
+    @Pointcut("execution(public * com.youcheng.runner.api.controller.*.*(..))")
     public void cut(){}
 
     @Before("cut()")

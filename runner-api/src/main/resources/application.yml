@@ -12,3 +12,5 @@ spring:
       ddl-auto: update # 第一次建表create  后面用update
 server:
   port: 8088
+logging:
+  level: debug

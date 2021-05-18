@@ -1,5 +1,7 @@
 package com.youcheng.runner.api.controller;
 
+import com.youcheng.runner.api.utils.ResultGenerator;
+import com.youcheng.runner.api.vo.Result;
 import com.youcheng.runner.core.service.domain.Example;
 import com.youcheng.runner.core.service.ExampleService;
 import com.youcheng.runner.core.service.HelloService;
@@ -15,20 +17,20 @@ public class ExampleController {
 
     //新增操作
     @PostMapping("/save")
-    public String save(@RequestParam String title, @RequestParam String remark){
+    public Result<Example> save(@RequestParam String title, @RequestParam String remark){
+
         Example example = new Example();
         example.setTitle(title);
         example.setRemark(remark);
-
         Example result = exampleService.save(example);
-        return result.toString();
+        return ResultGenerator.ok(result);
     }
 
     //查询操作
     //http://localhost:8088/api/example/{id}
     @GetMapping("/{id}")
-    public String get(@PathVariable Long id){
-        return exampleService.findById(id).toString();
+    public Result<Example> get(@PathVariable Long id){
+        Example result = exampleService.findById(id);
+        return ResultGenerator.ok(result);
     }
 }
-

@@ -26,14 +26,10 @@
     </properties>
 
     <modules>
-    <module>runner-core</module>
-    <module>runner-api</module>
-    <module>runner-admin</module>
-    <module>runner-web</module>
         <module>runner-core</module>
         <module>runner-api</module>
-        <module>Runner-web</module>
         <module>runner-admin</module>
-        <module>runner-admin</module>
+        <module>runner-web</module>
     </modules>
+
 </project>
