@@ -6,7 +6,7 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
 
-    <title>客户下单页面</title>
+    <title>客户评价页面</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
@@ -64,7 +64,6 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <h5 class="display-4">订单详情</h5>
         <div th:if="${tip} != null" class="alert alert-success" th:text="${tip}"></div>
         <table class="table">
             <thead>
@@ -127,43 +126,41 @@
 
             <tr th:if="${order.status >=2}">
                 <td>指派</td>
-                <td th:text="${order.designee.nickname}"></td>
+                <td></td>
                 <td th:text="${order.assignor.nickname}"></td>
                 <td th:text="${#dates.format(order.assignTime,'yyyy-MM-dd HH:mm:ss')}"></td>
             </tr>
             <tr th:if="${order.status >=3}">
                 <td>配送</td>
                 <td></td>
-                <td th:text="${order.designee.nickname}"></td>
+                <td></td>
                 <td th:text="${#dates.format(order.receiptTime,'yyyy-MM-dd HH:mm:ss')}"></td>
             </tr>
             <tr th:if="${order.status >=4}">
                 <td>送达</td>
                 <td></td>
-                <td th:text="${order.designee.nickname}"></td>
+                <td></td>
                 <td th:text="${#dates.format(order.sendToTime,'yyyy-MM-dd HH:mm:ss')}"></td>
             </tr>
-            <tr th:if="${order.status >=5}">
-                <td>顾客确认收货</td>
-                <td></td>
-                <td th:text="${order.creator.nickname}"></td>
-                <td th:text="${#dates.format(order.deliveryTime,'yyyy-MM-dd HH:mm:ss')}"></td>
-            </tr>
-            <tr th:if="${order.status >=6}">
-                <td>评价</td>
-                <td th:text="${order.evaluateContent}"></td>
-                <td th:text="${order.creator.nickname}"></td>
-                <td th:text="${#dates.format(order.evaluateTime,'yyyy-MM-dd HH:mm:ss')}"></td>
-            </tr>
-
             </tbody>
         </table>
+        <form class="form-signin" th:action="@{/order/evaluate}" method="post">
+
+
+            <textarea class="form-control" name="evaluateContent" rows="3" placeholder="请输入评价内容"></textarea>
+
+
+            <input type="hidden" name="id" th:value="${order.id}"/>
+            <button class="btn btn-lg btn-primary" type="submit">提交评价</button>
+        </form>
     </div>
+
 </div>
 <hr/>
 <footer class="container">
     <p>© 2017-2018 帮跑小子</p>
 </footer>
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

@@ -2,9 +2,8 @@ package com.youcheng.runner.api.controller;
 
 import com.youcheng.runner.api.utils.ResultGenerator;
 import com.youcheng.runner.api.vo.Result;
-import com.youcheng.runner.core.service.domain.Example;
+import com.youcheng.runner.core.domain.Example;
 import com.youcheng.runner.core.service.ExampleService;
-import com.youcheng.runner.core.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

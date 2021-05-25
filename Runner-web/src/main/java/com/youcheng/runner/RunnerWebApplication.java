@@ -1,4 +1,4 @@
-package com.youcheng.runner.web.controller;
+package com.youcheng.runner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

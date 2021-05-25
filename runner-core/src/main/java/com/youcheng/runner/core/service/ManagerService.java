@@ -1,6 +1,6 @@
 package com.youcheng.runner.core.service;
 
-import com.youcheng.runner.core.service.domain.Manager;
+import com.youcheng.runner.core.domain.Manager;
 
 public interface ManagerService {
 
@@ -26,4 +26,6 @@ public interface ManagerService {
      * @return
      */
     public Manager modifyPwd(Long id, String newPwd);
+
+    public Manager create(Manager manager);
 }

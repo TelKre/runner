@@ -1,4 +1,4 @@
-package com.youcheng.runner.web.controller.form;
+package com.youcheng.runner.web.form;
 
 import org.hibernate.validator.constraints.NotEmpty;
 

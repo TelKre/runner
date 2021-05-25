@@ -1,10 +1,9 @@
 package com.youcheng.runner.web.controller;
 
-
-import com.youcheng.runner.core.service.domain.Customer;
+import com.youcheng.runner.core.domain.Customer;
 import com.youcheng.runner.core.service.CustomerService;
-import com.youcheng.runner.web.controller.form.LoginForm;
-import com.youcheng.runner.web.controller.form.RegisterForm;
+import com.youcheng.runner.web.form.LoginForm;
+import com.youcheng.runner.web.form.RegisterForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpSession;
  * 公开的控制器，所有不需要身份认证的方法都会放到这个控制器中
  */
 @Controller
-@RequestMapping("/templates/publiz")
+@RequestMapping("/publiz")
 public class PublizController {
 
     @Autowired
@@ -60,13 +59,8 @@ public class PublizController {
 //        }
         //
 
-        if (bindingResult.hasErrors()){
-            StringBuilder sb = new StringBuilder();
-
-            for (ObjectError error : bindingResult.getAllErrors()) {
-                sb.append(error.getDefaultMessage());
-            }
-            model.addAttribute("errorMsg", sb.toString());
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("errorMsg", getErrorMessage(bindingResult));
             return "publiz/register";
         }
 
@@ -77,11 +71,11 @@ public class PublizController {
                 registerForm.getMobile());
 
         Customer result = customerService.register(customer);
-        if (result != null){
+        if (result != null) {
             //注册成功,跳转到登录界面，并携带相关提示信息
 
             return "publiz/regsuccess";
-        }else{
+        } else {
             //注册失败
             return null;
         }
@@ -90,25 +84,24 @@ public class PublizController {
 
     //进入登录界面
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "publiz/login";
     }
 
     //执行登录操作
     @PostMapping("/login")
-    public String login(@Validated LoginForm loginForm,BindingResult bindingResult,
-                        Model model, HttpSession session){
-        if (bindingResult.hasErrors()){
-            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
-            model.addAttribute("errorMsg", errorMsg);
+    public String login(@Validated LoginForm loginForm, BindingResult bindingResult,
+                        Model model, HttpSession session) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("errorMsg", getErrorMessage(bindingResult));
             return "publiz/login";
         }
         Customer customer = customerService.login(loginForm.getUsername(), loginForm.getPassword());
-        if (customer == null){
+        if (customer == null) {
             //登录失败，重新跳转到登录界面，并给出相关提示
             model.addAttribute("errorMsg", "用户名或密码不正确，请重新输入");
             return "publiz/login";
-        }else{
+        } else {
             //登录成功,有1个步骤要执行
 
             //将用户信息存放到session
@@ -119,4 +112,29 @@ public class PublizController {
         }
     }
 
+    /**
+     * 退出登录
+     * @return
+     */
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("customer");
+        //重定向到订单的首页
+        return "redirect:/publiz/login";
+    }
+
+    private String getErrorMessage(BindingResult bindingResult){
+        StringBuilder errorMsg = new StringBuilder();
+        int i = 0;
+        for (ObjectError error : bindingResult.getAllErrors()) {
+            if (i != 0) {
+                errorMsg.append("<br/>");
+            }
+            errorMsg.append(error.getDefaultMessage());
+            i++;
+        }
+        return errorMsg.toString();
+    }
+
 }
+

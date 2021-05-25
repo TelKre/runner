@@ -1,4 +1,4 @@
-package com.youcheng.runner.core.service.domain;
+package com.youcheng.runner.core.domain;
 
 import javax.persistence.*;
 

@@ -1,8 +1,8 @@
 package com.youcheng.runner.admin.controller;
 
-import com.youcheng.runner.core.service.domain.Customer;
-import com.youcheng.runner.core.service.domain.Manager;
-import com.youcheng.runner.core.service.domain.Order;
+import com.youcheng.runner.core.domain.Customer;
+import com.youcheng.runner.core.domain.Manager;
+import com.youcheng.runner.core.domain.Order;
 import com.youcheng.runner.core.service.CustomerService;
 import com.youcheng.runner.core.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;

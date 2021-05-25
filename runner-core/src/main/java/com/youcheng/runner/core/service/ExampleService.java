@@ -1,7 +1,7 @@
 package com.youcheng.runner.core.service;
 
 
-import com.youcheng.runner.core.service.domain.Example;
+import com.youcheng.runner.core.domain.Example;
 
 public interface ExampleService {
 

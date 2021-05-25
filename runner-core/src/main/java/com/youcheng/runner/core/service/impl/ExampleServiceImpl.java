@@ -1,13 +1,13 @@
 package com.youcheng.runner.core.service.impl;
 
-import com.youcheng.runner.core.service.domain.Example;
-import com.youcheng.runner.core.service.repository.ExampleRepository;
+import com.youcheng.runner.core.repository.ExampleRepository;
 import com.youcheng.runner.core.service.ExampleService;
+import com.youcheng.runner.core.domain.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ExampleServiceImpl implements ExampleService{
+public class ExampleServiceImpl implements ExampleService {
 
     @Autowired
     private ExampleRepository exampleRepository;

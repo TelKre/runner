@@ -1,6 +1,6 @@
-package com.youcheng.runner.admin.interceptor;
+package com.youcheng.runner.web.interceptor;
 
-import com.youcheng.runner.core.domain.Manager;
+import com.youcheng.runner.core.domain.Customer;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -13,8 +13,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        Manager manager= (Manager) session.getAttribute("manager");
-        if (manager!=null){
+        Customer customer = (Customer) session.getAttribute("customer");
+        if (customer!=null){
             return super.preHandle(request, response, handler);
         }else{
             response.sendRedirect("/publiz/login");

@@ -1,8 +1,7 @@
 package com.youcheng.runner.admin.controller;
 
 import com.youcheng.runner.admin.form.LoginForm;
-import com.youcheng.runner.core.service.domain.Customer;
-import com.youcheng.runner.core.service.domain.Manager;
+import com.youcheng.runner.core.domain.Manager;
 import com.youcheng.runner.core.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

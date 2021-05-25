@@ -1,4 +1,4 @@
-package com.youcheng.runner.core.service.domain;
+package com.youcheng.runner.core.domain;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -28,27 +28,29 @@ public class Order {
     private String store;
     // 送货人电话、
     @Column(length = 50)
-    private String consignerMobiel;
+    private String consignerMobile;
     // 送货人姓名、
     @Column(length = 50)
     private String consigner;
 
+    private Integer type;//1：帮我买，2：帮我送，3：帮我取
+
     // 谁下单
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "creator_id")
     private Customer creator;
     // 哪个时间下单
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date createTime;
     // 谁指派
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "assignor_id")
     private Manager assignor;
     // 哪个时间指派
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date assignTime;
     // 指派给谁
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "designee_id")
     private Customer designee;
 
@@ -62,6 +64,7 @@ public class Order {
     //什么时候确认收货
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date deliveryTime;
+
     //什么时候评价
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date evaluateTime;
@@ -118,12 +121,12 @@ public class Order {
         this.store = store;
     }
 
-    public String getConsignerMobiel() {
-        return consignerMobiel;
+    public String getConsignerMobile() {
+        return consignerMobile;
     }
 
-    public void setConsignerMobiel(String consignerMobiel) {
-        this.consignerMobiel = consignerMobiel;
+    public void setConsignerMobile(String consignerMobile) {
+        this.consignerMobile = consignerMobile;
     }
 
     public String getConsigner() {
@@ -132,6 +135,14 @@ public class Order {
 
     public void setConsigner(String consigner) {
         this.consigner = consigner;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Customer getCreator() {

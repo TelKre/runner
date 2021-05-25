@@ -1,14 +1,15 @@
 package com.youcheng.runner.core.service.impl;
 
-import com.youcheng.runner.core.service.domain.Customer;
-import com.youcheng.runner.core.service.domain.Manager;
-import com.youcheng.runner.core.service.repository.ManagerRepository;
 import com.youcheng.runner.core.service.ManagerService;
+import com.youcheng.runner.core.domain.Manager;
+import com.youcheng.runner.core.repository.ManagerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ManagerServiceImpl implements ManagerService {
 
+    @Autowired
     private ManagerRepository managerRepository;
 
     @Override
@@ -25,6 +26,11 @@ public class ManagerServiceImpl implements ManagerService {
     public Manager modifyPwd(Long id, String newPwd) {
         Manager manager = managerRepository.getOne(id);
         manager.setPassword(newPwd);
+        return managerRepository.save(manager);
+    }
+
+    @Override
+    public Manager create(Manager manager) {
         return managerRepository.save(manager);
     }
 }
