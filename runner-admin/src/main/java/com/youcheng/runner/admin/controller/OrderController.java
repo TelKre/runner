@@ -104,6 +104,7 @@ public class OrderController {
      */
     @GetMapping("/detail")
     public String detail(@RequestParam Long id, Model model){
+
         //调用服务层获取订单信息
         Order order = orderService.get(id);
 
